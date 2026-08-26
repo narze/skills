@@ -4,7 +4,7 @@ description: Convene a council over the installed agent skills, tally what actua
 disable-model-invocation: true
 ---
 
-# สังฆายนา
+# สังคายนา
 
 A **council** convened over the **canon**: every skill installed for the agent. A council recites the canon to find what no longer belongs, and it rules on evidence.
 
