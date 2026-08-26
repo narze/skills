@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # สังคายนา
 
-A **council** convened over the **canon**: every skill installed for the agent. A council recites the canon to find what no longer belongs, and it rules on evidence.
+A **council** convened over the **canon**: every skill installed for every agent, not Claude's alone. A council recites the canon to find what no longer belongs, and it rules on evidence.
 
 What a removal reclaims is **context load**. A model-invoked skill spends its description on every turn of every session, whether or not it ever fires; a user-invoked one costs nothing until it is typed. `tally.mts` prints that figure. It is what the council is arguing about, so quote it when you report.
 
@@ -18,7 +18,9 @@ node <base directory of this skill>/tally.mts
 
 Node 22.18 or newer runs it directly, with no dependencies and no build step.
 
-Read the **horizon** block before the rows. Two evidence streams reach back different distances, and the shorter one governs: typed invocations survive in `history.jsonl` for as long as that file goes back, while model invocations live only in session transcripts, which get swept. Skills shared with other agents can fire where this tally cannot see at all.
+Read the **horizon** block before the rows. Two evidence streams reach back different distances, and the shorter one governs: typed invocations survive in `history.jsonl` for as long as that file goes back, while model invocations live only in session transcripts, which get swept.
+
+Both streams witness Claude alone. A skill installed only for another agent shows `n/a`, because nothing here could have recorded its use; the `agents` column says which agents hold each skill. A typed count can also collect a built-in command that shares the skill's name.
 
 State both horizon dates in your report. Every verdict below is bounded by them.
 
@@ -44,6 +46,8 @@ Each skill in the tally gets one verdict and a one-line reason. Match the verdic
 | **sharpen** | Silent in the tally, yet step 2 found the user asking for the job in prose. The description is failing to trigger. The fix is its wording. |
 | **young** | `age_days` shorter than the model horizon's span. Too early to judge. Hold. |
 | **silent** | No evidence, old enough to judge, no twin, no prose trace. Silence inside a horizon is a question to carry to the user, and removal needs a reason beyond it. |
+| **unwitnessed** | `last_used` is `n/a`, so the skill belongs to another agent and no stream here could speak for it. Report it with its `agents`, and let the user rule. |
+| **doubled** | `copies` above 1, so the same name is installed more than once and removing one copy leaves the rest. Name every copy before proposing anything. |
 | **unmanaged** | `class` is `foreign` or `external`. The lock does not track it, so the removal command will not reach it either. |
 
 Hunt **twin** deliberately: group the rows by the job their names suggest, then read the descriptions in each cluster and say which one you would keep. Clusters are where the real load hides, because every copy pays full price every turn.
@@ -53,15 +57,16 @@ Hunt **twin** deliberately: group the rows by the job their names suggest, then 
 One table, ordered by the context load each row would return. Give the user:
 
 - The two horizon dates, and the load figures the tally printed.
-- Verdict and reason per skill.
+- Verdict and reason per skill, grouped by the agents that hold it.
 - For each **twin** cluster, which copy survives and why.
+- Every `copies` above 1, with each path, since one removal will not finish the job.
 
 ## 5. Prune what is approved
 
 Nothing leaves the canon without an explicit yes, named skill by skill. Then, by `class`:
 
-- `managed`: `npx skills remove -g -y <name> [<name>...]`
-- `foreign`: the skill is a real directory at `~/.claude/skills/<name>`. Show the user what it holds, then delete that directory on their word.
+- `managed`: `npx skills remove -g -y <name> [<name>...]` clears every agent's link. To drop one agent and keep the others, add `-a <agent>`.
+- `foreign`: the lock does not track it, so the command will not reach it. Show the user each real directory the tally counted in `copies`, then delete them on their word.
 - `external`: another application owns the target of the symlink. Name the owner and leave it in place.
 
 For **sharpen**, edit the description rather than removing the skill, and follow `writing-for-agents` for the wording.
