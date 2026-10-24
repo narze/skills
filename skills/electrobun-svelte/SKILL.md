@@ -1,6 +1,7 @@
 ---
 name: electrobun-svelte
 description: Wire Svelte 5 into an Electrobun app that has already been created with `bunx electrobun init`. Use this whenever the user wants Electrobun with Svelte, Vite-based HMR, or needs the frontend/main-process wiring repaired.
+disable-model-invocation: true
 ---
 
 # Electrobun + Svelte

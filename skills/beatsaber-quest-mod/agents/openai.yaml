@@ -1,0 +1,5 @@
+interface:
+  display_name: "Beat Saber Quest Mod"
+  short_description: "Build and debug Quest Beat Saber mods"
+policy:
+  allow_implicit_invocation: false

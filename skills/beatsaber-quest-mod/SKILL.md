@@ -1,6 +1,7 @@
 ---
 name: beatsaber-quest-mod
 description: Build, debug or deploy a native Beat Saber mod for Meta Quest (scotland2, qpm, bs-cordl, BSML, beatsaber-hook). Use when the task is a Quest Beat Saber mod, a qpm/scotland2 C++ project, or adb work on a headset that runs modded Beat Saber.
+disable-model-invocation: true
 ---
 
 # Beat Saber Quest mod

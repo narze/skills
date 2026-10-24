@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sangkayana"
+  short_description: "Prune the installed skill canon"
+policy:
+  allow_implicit_invocation: false
