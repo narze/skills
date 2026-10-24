@@ -1,6 +1,7 @@
 ---
 name: making-of
 description: Turn an agent build conversation into a "making-of" Remotion video that replays the chat turn by turn — the user's real prompts on the right, the agent's questions and actions on the left, in one continuously scrolling 16:9 chat session, with screenshots (or labelled mockups) of the results along the way and sound effects. Use this whenever the user wants a video, short, reel, clip, or animation of how something was built in a conversation ("make a Remotion video of this", "video of how we made the app", "replay our chat as a video to share"), even if they don't say "making-of" or "replay". Not for product promos or explainer videos about the app itself — this is about the conversation that built it.
+disable-model-invocation: true
 ---
 
 # Making-of video

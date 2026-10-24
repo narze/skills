@@ -1,0 +1,5 @@
+interface:
+  display_name: "Electrobun Svelte"
+  short_description: "Wire Svelte 5 into an Electrobun app"
+policy:
+  allow_implicit_invocation: false

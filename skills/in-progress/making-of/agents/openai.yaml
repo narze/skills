@@ -1,0 +1,5 @@
+interface:
+  display_name: "Making Of"
+  short_description: "Turn a build chat into a Remotion video"
+policy:
+  allow_implicit_invocation: false
