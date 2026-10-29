@@ -1,0 +1,5 @@
+interface:
+  display_name: "Try"
+  short_description: "Spike a library, framework, tool or skill in a throwaway sandbox"
+policy:
+  allow_implicit_invocation: false
