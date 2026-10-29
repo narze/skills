@@ -12,7 +12,7 @@ Arguments: the target (a name, package, repo URL, docs URL or skill path), plus 
 
 ## 1. Pin the target
 
-Find what the target is, its latest released version (unless the user named one), and its official quickstart. A website or product URL is a pointer, not the target: read its `llms.txt` if it has one, and follow it to the source repo or package. When the source is open, the spike self-hosts it from source. Write the **question** the spike answers: the user's, or else the headline promise from the README ("renders 10k rows without jank", "one-command self-host").
+Find what the target is, its latest released version (unless the user named one), and its official quickstart. A website URL is assumed to be the homepage of a library, and the target is its source. Hunt down the GitHub repo: links in the page (header, footer, JSON-LD `sameAs`), its `llms.txt`, the package registry entry, then `gh search repos`. Once found, the spike works from the repo, self-hosting from source when it ships an app. Only when no public source exists does the spike fall back to the hosted product or published package, and the report says so. Write the **question** the spike answers: the user's, or else the headline promise from the README ("renders 10k rows without jank", "one-command self-host").
 
 Done when the kind, version and question are settled.
 
