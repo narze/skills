@@ -1,0 +1,5 @@
+interface:
+  display_name: "Explain Diff"
+  short_description: "Explain a code change as an interactive HTML page"
+policy:
+  allow_implicit_invocation: false
