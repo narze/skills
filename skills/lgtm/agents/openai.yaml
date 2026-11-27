@@ -1,0 +1,5 @@
+interface:
+  display_name: "LGTM"
+  short_description: "Open a PR, review it, fix CI and conflicts, and optionally merge"
+policy:
+  allow_implicit_invocation: false
