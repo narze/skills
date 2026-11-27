@@ -14,7 +14,7 @@ The user is not watching. Your updates go unread until you stop.
 
 1. **Open the PR.** Find the PR for the current branch. If none exists: branch off the default branch if you are on it, push, and open a PR. Skip this step when one exists.
 2. **Advisory review.** Start a fresh subagent that reads the diff and the PR description, and nothing else from your context. Ask for findings with a file, a line, and a reason. Judge each finding yourself: fix it (test first), or dismiss it with a written reason. Push the fixes.
-3. **Babysit.** Watch the PR so that something wakes you when it changes (in T3 Code, see [T3-CODE.md](T3-CODE.md)). Each time it wakes, read the PR again and fix what you find:
+3. **Babysit.** Watch the PR so that something wakes you when it changes (in T3 Code, see [t3-code.md](t3-code.md)). Each time it wakes, read the PR again and fix what you find:
    - **Review comments** from bots and humans: fix, or reply with a reason. Resolve the thread.
    - **CI failures**: read the failing log, reproduce locally, fix the cause, push. A flaky test is a failure to fix too.
    - **Conflicts**: rebase onto the default branch, resolve, and push with `--force-with-lease`. Only this PR's own branch.
